@@ -18,8 +18,9 @@ latest_client_link = None  # A reference to the latest client link that connecte
 
 def init_server(configpath):
     reticulum = RNS.Reticulum(configpath)
-    server_identity = RNS.Identity()  # Randomly create a new identity for our link example
-
+    # server_identity = RNS.Identity()  # Randomly create a new identity for our link example
+    server_identity = RNS.Identity.from_file('identity_file')
+    # server_identity.to_file('identity_file')
     # We create a destination that clients can connect to. We
     # want clients to create links to this destination, so we
     # need to create a 'single' destination type.
